@@ -1,25 +1,43 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="UTF-8">
     <script src="http://cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/SpeechKITT/0.3.0/speechkitt.min.js"></script>
     <title>title</title>
-  </head>
-  <body>
-  
-  </body>
+</head>
+
+<body>
+
+</body>
+
 </html>
 <script>
-if (annyang) {
-  // Let's define a command.
-  var commands = {
-    'Hello I am *name': function(name) { alert('Hello '+name); }
-  };
+    window.onload = function () {
+        if (annyang) {
+            // Let's define a command.
+            var name = name;
+            var commands = {
+                'Hello I am *name': function (name) { alert('Hello ' + name); },
+                'play some *query': function (query) { },
+                'there is a snake in my boot': function () { alert('multiple tested'); }
+            };
+            SpeechKITT.annyang();
+            SpeechKITT.setStylesheet('//cdnjs.cloudflare.com/ajax/libs/SpeechKITT/0.3.0/themes/flat.css');
+            SpeechKITT.vroom();
 
-  // Add our commands to annyang
-  annyang.addCommands(commands);
 
-  // Start listening.
-  annyang.start();
-}
+
+            // Add our commands to annyang
+            annyang.addCommands(commands);
+
+            // Start listening.
+            annyang.start();
+
+
+
+        }
+    }
+
 </script>
