@@ -1,9 +1,19 @@
-<script src="http://cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
+    <title>title</title>
+  </head>
+  <body>
+  
+  </body>
+</html>
 <script>
 if (annyang) {
   // Let's define a command.
   var commands = {
-    'hello': function() { alert('Hello world!'); }
+    'Hello I am *name': function(name) { alert('Hello '+name); }
   };
 
   // Add our commands to annyang
