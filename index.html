@@ -4,38 +4,52 @@
 <head>
     <meta charset="UTF-8">
     <script src="http://cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <title>title</title>
 </head>
 
 <body>
-
+    hello
 </body>
 
 </html>
 <script>
-    window.onload = function () {
-        if (annyang) {
-            // Let's define a command.
-            var name = name;
-            var commands = {
-                'Hello I am *name': function (name) { alert('Hello ' + name); },
-                'play some *query': function (query) { },
-                'there is a snake in my boot': function () { alert('multiple tested'); }
-            };
-            
+    var assembleYTIframe = function (ID) {
+        var x = "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/" + vidID + " frameborder=\"0\" allowfullscreen></iframe>";
+        console.log(x);
+    }
+
+    var queryYoutube = function (query) {
+        $.getJSON("https://www.googleapis.com/youtube/v3/search?key=AIzaSyApvy70bwGAIJ1gBXGDBapfJwjz6cYzl-k&part=snippet&q=piano", function(res){
+            return(res.items[0].id.videoId);
+        })
+    }
+    if (annyang) {
+        // Let's define a command.
+        var name = name;
+        var commands = {
+            'Hello I am *name': function (name) { alert('Hello ' + name); },
+            'play some *query': function (query) { assembleYTIframe(queryYoutube(query))},
+            'Show me picture': showFlickr,
+            'there is a snake in my boot': function () { alert('multiple tested'); }
+        };
+
+        function showFlickr() {
+            Alert("HELLO");
+
+        };
 
 
 
-            // Add our commands to annyang
-            annyang.addCommands(commands);
+        // Add our commands to annyang
+        annyang.addCommands(commands);
 
-            // Start listening.
-            annyang.start();
+        // Start listening.
+        annyang.start({ autoRestart: true, continuous: false });
 
 
 
-        }
+
     }
 
 </script>
