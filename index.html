@@ -14,15 +14,13 @@
 
 </html>
 <script>
-    var assembleYTIframe = function (ID) {
-        var x = "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/" + vidID + " frameborder=\"0\" allowfullscreen></iframe>";
-        console.log(x);
-    }
-
     var queryYoutube = function (query) {
+        var x;
         $.getJSON("https://www.googleapis.com/youtube/v3/search?key=AIzaSyApvy70bwGAIJ1gBXGDBapfJwjz6cYzl-k&part=snippet&q=piano", function(res){
-            return(res.items[0].id.videoId);
+             x = "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/" + ID + " frameborder=\"0\" allowfullscreen></iframe>";
         })
+        console.log(x);
+        return x;
     }
     if (annyang) {
         // Let's define a command.
